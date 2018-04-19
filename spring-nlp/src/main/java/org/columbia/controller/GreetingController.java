@@ -1,6 +1,7 @@
-package controller;
+package org.columbia.controller;
 
-import dto.GreetingDTO;
+
+import org.columbia.dto.GreetingDTO;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 

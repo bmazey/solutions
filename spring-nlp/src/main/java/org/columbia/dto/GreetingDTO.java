@@ -1,15 +1,6 @@
-package dto;
+package org.columbia.dto;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-
-@Entity
 public class GreetingDTO {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
 
     private final long id;
     private final String content;

@@ -1,6 +1,6 @@
-package validator;
+package org.columbia.validator;
 
-import dto.GreetingDTO;
+import org.columbia.dto.GreetingDTO;
 import org.springframework.validation.Errors;
 import org.springframework.validation.Validator;
 
