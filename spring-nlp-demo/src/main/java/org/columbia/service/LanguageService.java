@@ -22,9 +22,9 @@ public class LanguageService {
      * Not sure about "DT" for article label
      */
 
-    final private String NOUN_LABEL = "NP";
-    final private String ADJ_LABEL = "ADJP";
-    final private String VERB_LABEL = "VP";
+    final private String NOUN_LABEL = "NN";
+    final private String ADJ_LABEL = "JJ";
+    final private String VERB_LABEL = "VBZ";
     final private String PREP_LABEL = "IN";
     final private String ART_LABEL = "DT";
 

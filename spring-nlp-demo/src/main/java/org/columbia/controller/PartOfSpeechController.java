@@ -44,7 +44,6 @@ public class PartOfSpeechController {
 
     private PartOfSpeechDto convertToDto(PartOfSpeech posEntity) {
         PartOfSpeechDto posDto = modelMapper.map(posEntity, PartOfSpeechDto.class);
-        posDto.setSentence(posEntity.getSentence());
 
         //call services here ...
 
