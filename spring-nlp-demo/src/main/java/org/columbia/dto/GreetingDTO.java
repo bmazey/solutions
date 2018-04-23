@@ -2,20 +2,14 @@ package org.columbia.dto;
 
 public class GreetingDTO {
 
-    private final long id;
-    private final String content;
-
-    public GreetingDTO(long id, String content) {
-        this.id = id;
-        this.content = content;
-    }
-
-    public long getId() {
-        return id;
-    }
+    private String content;
 
     public String getContent() {
         return content;
+    }
+
+    public void setContent(String content) {
+        this.content = content;
     }
 
 }
