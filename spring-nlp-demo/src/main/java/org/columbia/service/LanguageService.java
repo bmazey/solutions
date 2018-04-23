@@ -4,6 +4,8 @@ import edu.stanford.nlp.semgraph.SemanticGraph;
 import edu.stanford.nlp.simple.*;
 import org.columbia.entity.PartOfSpeech;
 import org.columbia.entity.Text;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
@@ -28,6 +30,9 @@ public class LanguageService {
     final private String PREP_PATTERN = "IN";
     final private String ART_PATTERN = "DT";
 
+    // Define the logger object for this class
+    private final Logger log = LoggerFactory.getLogger(this.getClass());
+
     //should return an entity ...
     public List<PartOfSpeech> parseEnglishSentence(Text text) {
 
@@ -41,11 +46,9 @@ public class LanguageService {
         for (Sentence sentence : doc.sentences()) {
             SemanticGraph graph = sentence.dependencyGraph();
 
-            //TODO - add logger
-            System.out.println("analyzing: \"" + sentence.text() + "\"");
-            System.out.println(sentence.parse());
+            log.info("analyzing: \"" + sentence.text() + "\"");
+            log.info(sentence.parse().toString());
 
-            //TODO - figure out a way to clean up the word tokens (ie: "tall/JJ")
             posList.add(new PartOfSpeechBuilderImpl().setSentence(sentence.text())
                                                      .setNouns(graph.getAllNodesByPartOfSpeechPattern(NOUN_PATTERN))
                                                      .setAdjectives(graph.getAllNodesByPartOfSpeechPattern(ADJ_PATTERN))
