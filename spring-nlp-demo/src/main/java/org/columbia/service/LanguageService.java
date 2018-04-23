@@ -18,7 +18,7 @@ public class LanguageService {
     //should return an entity ...
     public List<PartOfSpeech> parseEnglishSentence(Text text) {
 
-        ArrayList<PartOfSpeech> poseList = new ArrayList<>();
+        ArrayList<PartOfSpeech> posList = new ArrayList<>();
 
         //add "document" for multiple sentences here ...
         Sentence sentence = new Sentence(text.getText());
@@ -29,6 +29,6 @@ public class LanguageService {
          * What do we want? NER and POS returned as a JSON entity?
          */
 
-        return new ArrayList<PartOfSpeech>();
+        return posList;
     }
 }
