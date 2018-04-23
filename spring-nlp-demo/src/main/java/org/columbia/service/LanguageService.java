@@ -1,8 +1,11 @@
 package org.columbia.service;
 
 import edu.stanford.nlp.simple.*;
-import edu.stanford.nlp.tagger.maxent.MaxentTagger;
+import org.columbia.entity.PartOfSpeechEntity;
 import org.springframework.stereotype.Component;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @Component
 public class LanguageService {
@@ -12,13 +15,17 @@ public class LanguageService {
      */
 
     //should return an entity ...
-    public void parseEnglishSentence(String s) {
-        Sentence sentence = new Sentence(s);
-        System.out.println("analyzing: \"" + s + "\" ... ");
-        System.out.println(sentence.parse());
+    public List<PartOfSpeechEntity> parseEnglishSentence(PartOfSpeechEntity posEntity) {
+
+        //add "document" for multiple sentences here ...
+        Sentence sentence = new Sentence(posEntity.getText());
+        System.out.println("analyzing: \"" + posEntity.getText() + "\" ... ");
+        System.out.println(sentence.dependencyGraph().getAllNodesByPartOfSpeechPattern("NN"));
 
         /**
          * What do we want? NER and POS returned as a JSON entity?
          */
+
+        return new ArrayList<PartOfSpeechEntity>();
     }
 }

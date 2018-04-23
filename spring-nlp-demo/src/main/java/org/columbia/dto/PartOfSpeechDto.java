@@ -2,13 +2,23 @@ package org.columbia.dto;
 
 import java.util.ArrayList;
 
-public class PartOfSpeechDTO {
+public class PartOfSpeechDto {
+
+    private String text;
 
     private ArrayList<String> Articles;
     private ArrayList<String> Prepositions;
     private ArrayList<String> Nouns;
     private ArrayList<String> Verbs;
     private ArrayList<String> Adjectives;
+
+    public String getText() {
+        return text;
+    }
+
+    public void setText(String text) {
+        this.text = text;
+    }
 
     public ArrayList<String> getNouns() {
         return Nouns;
