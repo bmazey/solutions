@@ -1,5 +1,6 @@
 package org.columbia.service;
 
+import edu.stanford.nlp.ling.IndexedWord;
 import org.columbia.entity.PartOfSpeech;
 
 import java.util.List;
@@ -7,10 +8,10 @@ import java.util.List;
 interface PartOfSpeechBuilder {
     PartOfSpeech build();
     PartOfSpeechBuilder setText(final String text);
-    PartOfSpeechBuilder setArticles(final List<String> articles);
-    PartOfSpeechBuilder setPrepositions(final List<String> prepositions);
-    PartOfSpeechBuilder setVerbs(final List<String> verbs);
-    PartOfSpeechBuilder setNouns(final List<String> nouns);
-    PartOfSpeechBuilder setAdjectives(final List<String> adjectives);
+    PartOfSpeechBuilder setArticles(final List<IndexedWord> articles);
+    PartOfSpeechBuilder setPrepositions(final List<IndexedWord> prepositions);
+    PartOfSpeechBuilder setVerbs(final List<IndexedWord> verbs);
+    PartOfSpeechBuilder setNouns(final List<IndexedWord> nouns);
+    PartOfSpeechBuilder setAdjectives(final List<IndexedWord> adjectives);
 }
 

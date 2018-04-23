@@ -1,8 +1,10 @@
 package org.columbia.service;
 
+import edu.stanford.nlp.semgraph.SemanticGraph;
 import edu.stanford.nlp.simple.*;
 import org.columbia.entity.PartOfSpeech;
 import org.columbia.entity.Text;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
@@ -14,8 +16,11 @@ public class LanguageService {
     /**
      * Let's start putting together our NLP services! :)
      */
-    final String nounPattern = "NN";
-    final String adjectivePattern = "JJ";
+
+    final private String nounPattern = "NN";
+    final private String adjectivePattern = "JJ";
+
+    private PartOfSpeechBuilderImpl builder;
 
     //should return an entity ...
     public List<PartOfSpeech> parseEnglishSentence(Text text) {
@@ -28,9 +33,15 @@ public class LanguageService {
          * Let's use a builder pattern?
          */
         for (Sentence sentence : doc.sentences()) {
+            SemanticGraph graph = sentence.dependencyGraph();
             System.out.println("analyzing: \"" + sentence.text() + "\"");
             System.out.println(sentence.parse());
             System.out.println(sentence.dependencyGraph().getAllNodesByPartOfSpeechPattern(nounPattern));
+
+            posList.add(builder.setNouns(graph.getAllNodesByPartOfSpeechPattern(nounPattern))
+                               .setAdjectives(graph.getAllNodesByPartOfSpeechPattern(adjectivePattern))
+                               .build());
+
         }
 
         /**
