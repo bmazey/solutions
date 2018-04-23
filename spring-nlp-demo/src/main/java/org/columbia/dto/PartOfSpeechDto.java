@@ -7,11 +7,9 @@ public class PartOfSpeechDto {
     private String text;
 
     //TODO add Optional<?>
-    private ArrayList<String> Articles;
-    private ArrayList<String> Prepositions;
-    private ArrayList<String> Nouns;
-    private ArrayList<String> Verbs;
-    private ArrayList<String> Adjectives;
+    private ArrayList<String> nouns;
+    private ArrayList<String> verbs;
+    private ArrayList<String> adjectives;
 
     public String getText() {
         return text;
@@ -22,45 +20,26 @@ public class PartOfSpeechDto {
     }
 
     public ArrayList<String> getNouns() {
-        return Nouns;
+        return nouns;
     }
 
     public void setNouns(ArrayList<String> nouns) {
-        Nouns = nouns;
+        this.nouns = nouns;
     }
 
     public ArrayList<String> getAdjectives() {
-        return Adjectives;
+        return adjectives;
     }
 
     public void setAdjectives(ArrayList<String> adjectives) {
-        Adjectives = adjectives;
+        this.adjectives = adjectives;
     }
 
     public ArrayList<String> getVerbs() {
-        return Verbs;
+        return verbs;
     }
 
     public void setVerbs(ArrayList<String> verbs) {
-        Verbs = verbs;
+        this.verbs = verbs;
     }
-
-    public ArrayList<String> getPrepositions() {
-
-        return Prepositions;
-    }
-
-    public void setPrepositions(ArrayList<String> prepositions) {
-        Prepositions = prepositions;
-    }
-
-    public ArrayList<String> getArticles() {
-
-        return Articles;
-    }
-
-    public void setArticles(ArrayList<String> articles) {
-        Articles = articles;
-    }
-
 }

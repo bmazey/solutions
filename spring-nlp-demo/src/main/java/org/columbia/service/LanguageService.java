@@ -14,16 +14,24 @@ public class LanguageService {
     /**
      * Let's start putting together our NLP services! :)
      */
+    final String nounPattern = "NN";
+    final String adjectivePattern = "JJ";
 
     //should return an entity ...
     public List<PartOfSpeech> parseEnglishSentence(Text text) {
 
         ArrayList<PartOfSpeech> posList = new ArrayList<>();
 
-        //add "document" for multiple sentences here ...
-        Sentence sentence = new Sentence(text.getText());
-        System.out.println("analyzing: \"" + text.getText() + "\" ... ");
-        System.out.println(sentence.dependencyGraph().getAllNodesByPartOfSpeechPattern("NN"));
+        Document doc = new Document(text.getText());
+        /**
+         * This will iterate over sentences
+         * Let's use a builder pattern?
+         */
+        for (Sentence sentence : doc.sentences()) {
+            System.out.println("analyzing: \"" + sentence.text() + "\"");
+            System.out.println(sentence.parse());
+            System.out.println(sentence.dependencyGraph().getAllNodesByPartOfSpeechPattern(nounPattern));
+        }
 
         /**
          * What do we want? NER and POS returned as a JSON entity?
