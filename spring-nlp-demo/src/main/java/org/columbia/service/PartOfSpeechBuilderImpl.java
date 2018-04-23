@@ -57,8 +57,18 @@ class PartOfSpeechBuilderImpl implements PartOfSpeechBuilder {
     }
 
     private List<String> streamIndexedWords (List<IndexedWord> list) {
+        /**
+         * Ok so here's the thing ...
+         *
+         * We want to return a List<String> but Stanford NLP has us working with List<IndexedWords>
+         * No biggie with a lambda!
+         *
+         * On top of that, the String tokens we are left with still include their POS labels!
+         * Let's get rid of those with a REGEX inside the lambda ...
+         */
+
         List<String> strings = list.stream()
-                .map(object -> Objects.toString(object, null))
+                .map(object -> Objects.toString(object, null).replaceAll("/.*", ""))
                 .collect(Collectors.toList());
         return strings;
     }
