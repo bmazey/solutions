@@ -6,7 +6,8 @@ public class PartOfSpeechDto {
 
     private String sentence;
 
-    //TODO add Optional<?>
+    //TODO - add Optional<?>
+    //TODO - add Personal Pronouns
     private ArrayList<String> nouns;
     private ArrayList<String> verbs;
     private ArrayList<String> adjectives;

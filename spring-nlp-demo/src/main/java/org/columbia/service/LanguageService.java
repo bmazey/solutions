@@ -4,7 +4,6 @@ import edu.stanford.nlp.semgraph.SemanticGraph;
 import edu.stanford.nlp.simple.*;
 import org.columbia.entity.PartOfSpeech;
 import org.columbia.entity.Text;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
@@ -15,10 +14,19 @@ public class LanguageService {
 
     /**
      * Let's start putting together our NLP services! :)
+     * https://stanfordnlp.github.io/CoreNLP/simple.html
+     *
+     * Check this link out for more info on the labels below ...
+     * https://stackoverflow.com/questions/1833252/java-stanford-nlp-part-of-speech-labels
+     *
+     * Not sure about "DT" for article label
      */
 
-    final private String nounPattern = "NN";
-    final private String adjectivePattern = "JJ";
+    final private String NOUN_LABEL = "NP";
+    final private String ADJ_LABEL = "ADJP";
+    final private String VERB_LABEL = "VP";
+    final private String PREP_LABEL = "IN";
+    final private String ART_LABEL = "DT";
 
     //should return an entity ...
     public List<PartOfSpeech> parseEnglishSentence(Text text) {
@@ -32,13 +40,17 @@ public class LanguageService {
          */
         for (Sentence sentence : doc.sentences()) {
             SemanticGraph graph = sentence.dependencyGraph();
+
+            //TODO - add logger
             System.out.println("analyzing: \"" + sentence.text() + "\"");
             System.out.println(sentence.parse());
-            System.out.println(sentence.dependencyGraph().getAllNodesByPartOfSpeechPattern(nounPattern));
 
             posList.add(new PartOfSpeechBuilderImpl().setSentence(sentence.text())
-                                                     .setNouns(graph.getAllNodesByPartOfSpeechPattern(nounPattern))
-                                                     .setAdjectives(graph.getAllNodesByPartOfSpeechPattern(adjectivePattern))
+                                                     .setNouns(graph.getAllNodesByPartOfSpeechPattern(NOUN_LABEL))
+                                                     .setAdjectives(graph.getAllNodesByPartOfSpeechPattern(ADJ_LABEL))
+                                                     .setVerbs(graph.getAllNodesByPartOfSpeechPattern(VERB_LABEL))
+                                                     .setPrepositions(graph.getAllNodesByPartOfSpeechPattern(PREP_LABEL))
+                                                     .setArticles(graph.getAllNodesByPartOfSpeechPattern(ART_LABEL))
                                                      .build());
 
         }
