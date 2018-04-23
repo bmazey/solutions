@@ -12,13 +12,13 @@ public class GreetingController {
 
     @RequestMapping(value = "/api/language", method = RequestMethod.GET)
     @ResponseBody
-    public ResponseEntity<?> get() {
+    public ResponseEntity<?> getGreeting() {
         return ResponseEntity.ok("success!");
     }
 
     @RequestMapping(value = "/api/language", method = RequestMethod.POST)
     @ResponseBody
-    public ResponseEntity<?> add(@Valid @RequestBody GreetingDTO greeting) {
+    public ResponseEntity<?> postGreeting(@Valid @RequestBody GreetingDTO greeting) {
         return ResponseEntity.ok(greeting.getContent());
     }
 
