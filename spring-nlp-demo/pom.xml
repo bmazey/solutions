@@ -38,6 +38,13 @@
             <scope>test</scope>
         </dependency>
 
+        <!-- model mapper: http://www.baeldung.com/entity-to-and-from-dto-for-a-java-spring-application -->
+        <dependency>
+            <groupId>org.modelmapper</groupId>
+            <artifactId>modelmapper</artifactId>
+            <version>0.7.4</version>
+        </dependency>
+
         <!-- https://mvnrepository.com/artifact/org.springframework/spring-web -->
         <dependency>
             <groupId>org.springframework</groupId>
