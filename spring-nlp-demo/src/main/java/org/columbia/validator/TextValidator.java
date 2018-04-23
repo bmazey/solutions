@@ -1,21 +1,21 @@
 package org.columbia.validator;
 
-import org.columbia.dto.GreetingDTO;
+import org.columbia.dto.TextDto;
 import org.springframework.validation.Errors;
 import org.springframework.validation.Validator;
 
-public class GreetingValidator implements Validator {
+public class TextValidator implements Validator {
 
     @Override
     public boolean supports(Class<?> clazz) {
-        return GreetingDTO.class.equals(clazz);
+        return TextDto.class.equals(clazz);
     }
 
     @Override
     public void validate(Object obj, Errors errors) {
-        GreetingDTO greeting = (GreetingDTO) obj;
-        if (checkInputString(greeting.getContent())) {
-            errors.rejectValue("name", "name.empty");
+        TextDto text = (TextDto) obj;
+        if (checkInputString(text.getText())) {
+            errors.rejectValue("text", "name.empty");
         }
     }
 
