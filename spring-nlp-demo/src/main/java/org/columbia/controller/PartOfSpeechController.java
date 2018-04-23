@@ -33,9 +33,6 @@ public class PartOfSpeechController {
     @ResponseBody
     public List<PartOfSpeechDto> postText(@Valid @RequestBody TextDto textDto) {
         Text text = convertToEntity(textDto);
-
-        //call service here ...
-
         List<PartOfSpeech> posEntities = languageService.parseEnglishSentence(text);
         return posEntities.stream()
                 .map(parsedPosEntity -> convertToDto(parsedPosEntity))
@@ -44,17 +41,11 @@ public class PartOfSpeechController {
 
     private PartOfSpeechDto convertToDto(PartOfSpeech posEntity) {
         PartOfSpeechDto posDto = modelMapper.map(posEntity, PartOfSpeechDto.class);
-
-        //call services here ...
-
         return posDto;
     }
 
     private Text convertToEntity(TextDto textDto) {
         Text text = modelMapper.map(textDto, Text.class);
-
-        //call services here ...
-
         return text;
     }
 
