@@ -6,6 +6,7 @@ public class PartOfSpeechDto {
 
     private String text;
 
+    //TODO add Optional<?>
     private ArrayList<String> Articles;
     private ArrayList<String> Prepositions;
     private ArrayList<String> Nouns;

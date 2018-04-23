@@ -1,8 +1,9 @@
 package org.columbia.entity;
 
-public class PartOfSpeechEntity {
-
+public class Text {
     private String text;
+
+    //TODO add Optional<Sentence>
 
     public String getText() {
         return text;
@@ -11,5 +12,4 @@ public class PartOfSpeechEntity {
     public void setText(String content) {
         this.text = content;
     }
-
 }

@@ -2,18 +2,20 @@ package org.columbia.controller;
 
 import org.columbia.dto.PartOfSpeechDto;
 import org.columbia.dto.TextDto;
-import org.columbia.entity.PartOfSpeechEntity;
+import org.columbia.entity.PartOfSpeech;
+import org.columbia.entity.Text;
 import org.columbia.service.LanguageService;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
 import java.util.stream.Collectors;
 
 @RestController
-public class LanguageController {
+public class PartOfSpeechController {
 
     @Autowired
     private ModelMapper modelMapper;
@@ -21,25 +23,26 @@ public class LanguageController {
     @Autowired
     private LanguageService languageService;
 
-    @RequestMapping(value = "/api/language", method = RequestMethod.GET)
+    @RequestMapping(value = "/api/language/pos", method = RequestMethod.GET)
     @ResponseBody
     public ResponseEntity<?> getText() {
         return ResponseEntity.ok("success!");
     }
 
-    @RequestMapping(value = "/api/language", method = RequestMethod.POST)
+    @RequestMapping(value = "/api/language/pos", method = RequestMethod.POST)
     @ResponseBody
-    public List<PartOfSpeechDto> postText(@RequestBody TextDto textDto) {
-        PartOfSpeechEntity posEntity = convertToEntity(textDto);
+    public List<PartOfSpeechDto> postText(@Valid @RequestBody TextDto textDto) {
+        Text text = convertToEntity(textDto);
 
         //call service here ...
-        List<PartOfSpeechEntity> posEntities = languageService.parseEnglishSentence(posEntity);
+
+        List<PartOfSpeech> posEntities = languageService.parseEnglishSentence(text);
         return posEntities.stream()
                 .map(parsedPosEntity -> convertToDto(parsedPosEntity))
                 .collect(Collectors.toList());
     }
 
-    private PartOfSpeechDto convertToDto(PartOfSpeechEntity posEntity) {
+    private PartOfSpeechDto convertToDto(PartOfSpeech posEntity) {
         PartOfSpeechDto posDto = modelMapper.map(posEntity, PartOfSpeechDto.class);
         posDto.setText(posEntity.getText());
 
@@ -48,21 +51,13 @@ public class LanguageController {
         return posDto;
     }
 
-    private PartOfSpeechEntity convertToEntity(PartOfSpeechDto posDto) {
-        PartOfSpeechEntity  posEntity = modelMapper.map(posDto, PartOfSpeechEntity.class);
+    private Text convertToEntity(TextDto textDto) {
+        Text text = modelMapper.map(textDto, Text.class);
 
         //call services here ...
 
-        return posEntity;
+        return text;
     }
 
-    private PartOfSpeechEntity convertToEntity(TextDto text) {
-        PartOfSpeechEntity  posEntity = modelMapper.map(text, PartOfSpeechEntity.class);
-        posEntity.setText(text.getText());
-
-        //call services here ...
-
-        return posEntity;
-    }
 
 }
