@@ -21,8 +21,8 @@ class PartOfSpeechBuilderImpl implements PartOfSpeechBuilder {
     }
 
     @Override
-    public PartOfSpeechBuilder setText(String text) {
-        pos.setText(text);
+    public PartOfSpeechBuilder setSentence(String sentence) {
+        pos.setSentence(sentence);
         return this;
     }
 

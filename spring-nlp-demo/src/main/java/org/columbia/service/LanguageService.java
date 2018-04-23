@@ -36,7 +36,8 @@ public class LanguageService {
             System.out.println(sentence.parse());
             System.out.println(sentence.dependencyGraph().getAllNodesByPartOfSpeechPattern(nounPattern));
 
-            posList.add(new PartOfSpeechBuilderImpl().setNouns(graph.getAllNodesByPartOfSpeechPattern(nounPattern))
+            posList.add(new PartOfSpeechBuilderImpl().setSentence(sentence.text())
+                                                     .setNouns(graph.getAllNodesByPartOfSpeechPattern(nounPattern))
                                                      .setAdjectives(graph.getAllNodesByPartOfSpeechPattern(adjectivePattern))
                                                      .build());
 

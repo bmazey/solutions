@@ -7,7 +7,7 @@ import java.util.List;
 
 interface PartOfSpeechBuilder {
     PartOfSpeech build();
-    PartOfSpeechBuilder setText(final String text);
+    PartOfSpeechBuilder setSentence(final String sentence);
     PartOfSpeechBuilder setArticles(final List<IndexedWord> articles);
     PartOfSpeechBuilder setPrepositions(final List<IndexedWord> prepositions);
     PartOfSpeechBuilder setVerbs(final List<IndexedWord> verbs);

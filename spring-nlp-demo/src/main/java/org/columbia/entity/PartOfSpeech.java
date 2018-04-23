@@ -4,7 +4,7 @@ import java.util.List;
 
 public class PartOfSpeech {
 
-    private String text;
+    private String sentence;
 
     //TODO add Optional<?>
     private List<String> articles;
@@ -13,12 +13,12 @@ public class PartOfSpeech {
     private List<String> verbs;
     private List<String> adjectives;
 
-    public String getText() {
-        return text;
+    public String getSentence() {
+        return sentence;
     }
 
-    public void setText(String text) {
-        this.text = text;
+    public void setSentence(String sentence) {
+        this.sentence = sentence;
     }
 
     public List<String> getNouns() {

@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 public class PartOfSpeechDto {
 
-    private String text;
+    private String sentence;
 
     //TODO add Optional<?>
     private ArrayList<String> nouns;
@@ -12,11 +12,11 @@ public class PartOfSpeechDto {
     private ArrayList<String> adjectives;
 
     public String getText() {
-        return text;
+        return sentence;
     }
 
-    public void setText(String text) {
-        this.text = text;
+    public void setText(String sentence) {
+        this.sentence = sentence;
     }
 
     public ArrayList<String> getNouns() {
