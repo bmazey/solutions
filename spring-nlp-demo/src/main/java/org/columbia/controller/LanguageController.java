@@ -1,6 +1,7 @@
 package org.columbia.controller;
 
 import org.columbia.dto.PartOfSpeechDto;
+import org.columbia.dto.TextDto;
 import org.columbia.entity.PartOfSpeechEntity;
 import org.columbia.service.LanguageService;
 import org.modelmapper.ModelMapper;
@@ -28,8 +29,8 @@ public class LanguageController {
 
     @RequestMapping(value = "/api/language", method = RequestMethod.POST)
     @ResponseBody
-    public List<PartOfSpeechDto> postText(@RequestBody PartOfSpeechDto posDto) {
-        PartOfSpeechEntity posEntity = convertToEntity(posDto);
+    public List<PartOfSpeechDto> postText(@RequestBody TextDto textDto) {
+        PartOfSpeechEntity posEntity = convertToEntity(textDto);
 
         //call service here ...
         List<PartOfSpeechEntity> posEntities = languageService.parseEnglishSentence(posEntity);
@@ -49,6 +50,15 @@ public class LanguageController {
 
     private PartOfSpeechEntity convertToEntity(PartOfSpeechDto posDto) {
         PartOfSpeechEntity  posEntity = modelMapper.map(posDto, PartOfSpeechEntity.class);
+
+        //call services here ...
+
+        return posEntity;
+    }
+
+    private PartOfSpeechEntity convertToEntity(TextDto text) {
+        PartOfSpeechEntity  posEntity = modelMapper.map(text, PartOfSpeechEntity.class);
+        posEntity.setText(text.getText());
 
         //call services here ...
 
