@@ -20,8 +20,6 @@ public class LanguageService {
     final private String nounPattern = "NN";
     final private String adjectivePattern = "JJ";
 
-    private PartOfSpeechBuilderImpl builder;
-
     //should return an entity ...
     public List<PartOfSpeech> parseEnglishSentence(Text text) {
 
@@ -38,9 +36,9 @@ public class LanguageService {
             System.out.println(sentence.parse());
             System.out.println(sentence.dependencyGraph().getAllNodesByPartOfSpeechPattern(nounPattern));
 
-            posList.add(builder.setNouns(graph.getAllNodesByPartOfSpeechPattern(nounPattern))
-                               .setAdjectives(graph.getAllNodesByPartOfSpeechPattern(adjectivePattern))
-                               .build());
+            posList.add(new PartOfSpeechBuilderImpl().setNouns(graph.getAllNodesByPartOfSpeechPattern(nounPattern))
+                                                     .setAdjectives(graph.getAllNodesByPartOfSpeechPattern(adjectivePattern))
+                                                     .build());
 
         }
 
