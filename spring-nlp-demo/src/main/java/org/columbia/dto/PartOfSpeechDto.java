@@ -11,11 +11,11 @@ public class PartOfSpeechDto {
     private ArrayList<String> verbs;
     private ArrayList<String> adjectives;
 
-    public String getText() {
+    public String getSentence() {
         return sentence;
     }
 
-    public void setText(String sentence) {
+    public void setSentence(String sentence) {
         this.sentence = sentence;
     }
 
