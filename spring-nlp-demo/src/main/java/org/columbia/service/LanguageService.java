@@ -45,6 +45,7 @@ public class LanguageService {
             System.out.println("analyzing: \"" + sentence.text() + "\"");
             System.out.println(sentence.parse());
 
+            //TODO - figure out a way to clean up the word tokens (ie: "tall/JJ")
             posList.add(new PartOfSpeechBuilderImpl().setSentence(sentence.text())
                                                      .setNouns(graph.getAllNodesByPartOfSpeechPattern(NOUN_LABEL))
                                                      .setAdjectives(graph.getAllNodesByPartOfSpeechPattern(ADJ_LABEL))
