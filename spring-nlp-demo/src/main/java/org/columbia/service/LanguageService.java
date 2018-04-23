@@ -12,8 +12,12 @@ public class LanguageService {
      */
 
     public void parseEnglishSentence(String s) {
-        //MaxentTagger tagger = new MaxentTagger("edu/stanford/nlp/models/pos-tagger/english-left3words/english-left3words-distsim.tagger");
         Sentence sentence = new Sentence(s);
-        System.out.println(sentence.posTags());
+        System.out.println("analyzing \"" + s + "\" ... ");
+        System.out.println(sentence.parse());
+
+        /**
+         * What do we want? NER and POS returned as a JSON entity?
+         */
     }
 }
