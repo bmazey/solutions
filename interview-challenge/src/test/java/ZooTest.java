@@ -1,4 +1,5 @@
 import org.junit.Test;
+import zoo.Animal;
 import zoo.Cat;
 import zoo.Panther;
 
@@ -8,11 +9,20 @@ import static org.junit.Assert.assertThat;
 
 public class ZooTest {
 
+    /**
+     * Let's start by making all of the Animals, then testing their properties.
+     */
+
     Cat myPanther = new Panther();
 
     @Test
     public void testPantherSize() {
         assertEquals(myPanther.getSize().intValue(), 5);
+    }
+
+    @Test
+    public void testPantherLegs() {
+        assertEquals(myPanther.getNumberOfLegs().intValue(), 4);
     }
 
     @Test
@@ -22,6 +32,6 @@ public class ZooTest {
 
     @Test
     public void testPantherCall() {
-        assertThat(myPanther.getCall(), equalToIgnoringCase("roar"));
+        assertThat(myPanther.getCall(), equalToIgnoringCase("Roar"));
     }
 }

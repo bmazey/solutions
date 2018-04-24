@@ -8,6 +8,15 @@ public abstract class Cat implements Animal {
     private Color color = Color.BROWN;
     private Vertebrate vertebrate = Vertebrate.MAMMAL;
 
+    /**
+     * The method below is an abstract method that is specific to Cat - it's not specified in the Animal interface!
+     * Practically speaking, this means that any class that extends Cat needs to provide an implementation for this
+     * method ...
+     *
+     * @return
+     */
+    abstract void purr();
+
     public Integer getSize() {
         return size;
     }
