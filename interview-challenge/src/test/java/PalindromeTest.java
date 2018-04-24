@@ -1,3 +1,4 @@
+import org.hamcrest.text.IsEqualIgnoringCase;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
@@ -8,15 +9,15 @@ public class PalindromeTest {
 
     @Test
     public void testIsPalindrome() {
-        assertEquals(myPalindrome.isPalindrone("racecar"), true);
-        assertEquals(myPalindrome.isPalindrone("civic"), true);
-        assertEquals(myPalindrome.isPalindrone("radar"), true);
+        assertEquals(myPalindrome.isPalindrome("racecar"), true);
+        assertEquals(myPalindrome.isPalindrome("civic"), true);
+        assertEquals(myPalindrome.isPalindrome("radar"), true);
     }
 
     @Test
     public void testIsNotPalindrome() {
-        assertEquals(myPalindrome.isPalindrone("kitten"), false);
-        assertEquals(myPalindrome.isPalindrone("milkshake"), false);
-        assertEquals(myPalindrome.isPalindrone("robot"), false);
+        assertEquals(myPalindrome.isPalindrome("kitten"), false);
+        assertEquals(myPalindrome.isPalindrome("milkshake"), false);
+        assertEquals(myPalindrome.isPalindrome("robot"), false);
     }
 }

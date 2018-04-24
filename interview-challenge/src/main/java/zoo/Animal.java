@@ -11,6 +11,6 @@ public interface Animal {
      * Here are the enums ...
      */
     Color getColor();
-    AnimalClass getAnimalClass();
+    Vertebrate getVertebrate();
 
 }

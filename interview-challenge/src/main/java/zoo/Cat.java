@@ -6,7 +6,7 @@ public abstract class Cat implements Animal {
     private int numberOfLegs = 4;
     private String call = "meow";
     private Color color = Color.BROWN;
-    private AnimalClass animalClass = AnimalClass.MAMMAL;
+    private Vertebrate vertebrate = Vertebrate.MAMMAL;
 
     public Integer getSize() {
         return size;
@@ -40,12 +40,12 @@ public abstract class Cat implements Animal {
         this.color = color;
     }
 
-    public AnimalClass getAnimalClass() {
-        return animalClass;
+    public Vertebrate getVertebrate() {
+        return vertebrate;
     }
 
-    public void setAnimalClass(AnimalClass animalClass) {
-        this.animalClass = animalClass;
+    public void setVertebrate(Vertebrate vertebrate) {
+        this.vertebrate = vertebrate;
     }
 
 }

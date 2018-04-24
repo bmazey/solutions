@@ -9,7 +9,7 @@ public class Palindrome {
 
     }
 
-    public boolean isPalindrone (String s) {
+    public boolean isPalindrome(String s) {
         String r = new StringBuilder(s).reverse().toString();
         if (s.equals(r)) return true;
         else return false;

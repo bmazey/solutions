@@ -1,6 +1,6 @@
 package zoo;
 
-public enum AnimalClass {
+public enum Vertebrate {
     MAMMAL,
     BIRD,
     REPTILE,

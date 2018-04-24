@@ -9,7 +9,7 @@ public class Panther extends Cat {
 
     @Override
     public String getCall() {
-        return "roar";
+        return "ROAR";
     }
 
     @Override
