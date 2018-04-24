@@ -8,15 +8,20 @@ import static org.junit.Assert.assertThat;
 
 public class ZooTest {
 
+    Cat myPanther = new Panther();
+
     @Test
     public void testPantherSize() {
-        Cat myPanther = new Panther();
         assertEquals(myPanther.getSize().intValue(), 5);
     }
 
     @Test
-    public void testPantherColoer() {
-        Cat myPanther = new Panther();
+    public void testPantherColor() {
         assertThat(myPanther.getColor().name(), equalToIgnoringCase("BLACK"));
+    }
+
+    @Test
+    public void testPantherCall() {
+        assertThat(myPanther.getCall(), equalToIgnoringCase("roar"));
     }
 }
