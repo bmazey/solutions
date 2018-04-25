@@ -1,5 +1,4 @@
 import org.junit.Test;
-import zoo.Animal;
 import zoo.Cat;
 import zoo.Panther;
 
