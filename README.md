@@ -26,3 +26,5 @@ made some changes to the post-build script. had to change docker repo name
 test again ...
 
 sed having some problems loading the JSON
+
+ok i think we've got it this time
