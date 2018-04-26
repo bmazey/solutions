@@ -19,4 +19,4 @@
                            `------`--`     ``--'--'    `-----`---`'----`--`
 </pre>
 
-tinkering ...
+ok great permissions look good ... now just aws cli error
