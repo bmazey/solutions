@@ -19,4 +19,4 @@
                            `------`--`     ``--'--'    `-----`---`'----`--`
 </pre>
 
-ok great permissions look good ... now just aws cli error
+specifying region for aws cli
