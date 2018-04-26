@@ -19,4 +19,4 @@
                            `------`--`     ``--'--'    `-----`---`'----`--`
 </pre>
 
-specifying region for aws cli
+still tinkering with build script
