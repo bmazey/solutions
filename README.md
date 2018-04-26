@@ -19,4 +19,4 @@
                            `------`--`     ``--'--'    `-----`---`'----`--`
 </pre>
 
-still tinkering with build script con't ...
+don't think this will work but let's try
