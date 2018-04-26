@@ -18,3 +18,5 @@
                            /` -   ,/==/  `.   - .`=.`  /     \==\\ . -  /==/
                            `------`--`     ``--'--'    `-----`---`'----`--`
 </pre>
+
+Ok, we're going to add some Jenkins + Docker integration for a CI/CD pipeline
