@@ -19,4 +19,4 @@
                            `------`--`     ``--'--'    `-----`---`'----`--`
 </pre>
 
-trying new cluster name
+had the wrong region >.<
