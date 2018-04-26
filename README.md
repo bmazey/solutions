@@ -28,3 +28,5 @@ test again ...
 sed having some problems loading the JSON
 
 ok i think we've got it this time
+
+it's a permissioning thing .. of course
