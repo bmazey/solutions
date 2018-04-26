@@ -7,9 +7,20 @@ public class FizzBuzzTest {
     FizzBuzz myFizzBuzz= new FizzBuzz();
 
     @Test
-    public void testFizzBuzz() {
-        assertEquals(myFizzBuzz.fizzBuzz(3), "fizz");
-        assertEquals(myFizzBuzz.fizzBuzz(5), "buzz");
-        assertEquals(myFizzBuzz.fizzBuzz(15), "fizzbuzz");
+    public void testFizzBuzzMultipleOfThree() {
+        assertEquals(myFizzBuzz.fizzBuzz(231), "fizz");
+        // add more cases?
+    }
+
+    @Test
+    public void testFizzBuzzMultipleOfFive() {
+        assertEquals(myFizzBuzz.fizzBuzz(440), "buzz");
+        // add more cases?
+    }
+
+    @Test
+    public void testFizzBuzzMultipleOfThreeAndFive() {
+        assertEquals(myFizzBuzz.fizzBuzz(101640), "fizzbuzz");
+        // add more cases?
     }
 }
