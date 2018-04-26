@@ -19,4 +19,4 @@
                            `------`--`     ``--'--'    `-----`---`'----`--`
 </pre>
 
-trying again ... ... ... ...
+hooray! jenkins + docker seems to be working!
