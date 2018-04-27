@@ -1,4 +1,4 @@
-public class PrimitiveTypeCast {
+public class PrimitiveTypeCastExample {
     public static void main(String[] args) {
         double d = 100.5;
         int i = (int)d; //explicit casting required here!
