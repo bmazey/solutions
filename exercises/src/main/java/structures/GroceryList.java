@@ -14,6 +14,7 @@ public class GroceryList {
         groceryList.add("eggs");
         groceryList.add("seltzer");
         groceryList.add("cheese");
+        groceryList.add("seltzer");
 
         return groceryList;
     }

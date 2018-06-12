@@ -37,8 +37,14 @@ public class GroceryListTest {
     }
 
     @Test
+    public void checkFifthItem() {
+        List<String> groceryList = myGroceryList.createGroceryList();
+        assertThat(groceryList.get(2), equalToIgnoringCase(groceryList.get(4)));
+    }
+
+    @Test
     public void checkListSize() {
         List<String> groceryList = myGroceryList.createGroceryList();
-        assertThat(groceryList.size(), equalTo(4));
+        assertThat(groceryList.size(), equalTo(5));
     }
 }
