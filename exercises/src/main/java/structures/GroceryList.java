@@ -8,7 +8,7 @@ public class GroceryList {
 
     }
 
-    public static List<String> createGroceryList() {
+    public List<String> createGroceryList() {
         List<String> groceryList = new ArrayList<String>();
         groceryList.add("milk");
         groceryList.add("eggs");
