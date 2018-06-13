@@ -3,7 +3,6 @@ package structures;
 import org.junit.Test;
 import structures.tree.FamilyTree;
 import structures.tree.TreeNode;
-import structures.tree.TreeNodeIter;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.equalToIgnoringCase;
@@ -38,18 +37,15 @@ public class FamilyTreeTest {
     }
 
     @Test
-    public void checkNumberOfGrandchildren() {
-
-    }
-
-    @Test
     public void checkGeorgeMichaelIsGrandson() {
-
+        TreeNode<String> georgeMichael = rootNode.findTreeNode("George Michael");
+        assertThat(georgeMichael.parent.data, equalToIgnoringCase("Michael"));
     }
 
     @Test
     public void checkMaebyIsGranddaughter() {
-
+        TreeNode<String> georgeMichael = rootNode.findTreeNode("Maeby");
+        assertThat(georgeMichael.parent.data, equalToIgnoringCase("Lindsay"));
     }
 
 }
