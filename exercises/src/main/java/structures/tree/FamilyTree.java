@@ -11,6 +11,7 @@ public class FamilyTree {
         TreeNode<String> lucille = new TreeNode<String>("Lucille");
 
         //2nd generation
+        TreeNode georgeOscar = lucille.addChild("George Oscar");
         TreeNode michael = lucille.addChild("Michael");
         TreeNode lindsay = lucille.addChild("Lindsay");
         TreeNode buster = lucille.addChild("Buster");

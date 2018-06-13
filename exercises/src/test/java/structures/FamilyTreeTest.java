@@ -3,6 +3,7 @@ package structures;
 import org.junit.Test;
 import structures.tree.FamilyTree;
 import structures.tree.TreeNode;
+import structures.tree.TreeNodeIter;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.equalToIgnoringCase;
@@ -20,7 +21,35 @@ public class FamilyTreeTest {
 
     @Test
     public void checkRootNumberOfChildren() {
-        assertThat(rootNode.children.size(), equalTo(3));
+        assertThat(rootNode.children.size(), equalTo(4));
+    }
+
+    @Test
+    public void checkChildNames() {
+
+        /**
+         * BEWARE! Order matters! Based on this test, it looks like the first child name should be "George Oscar" ...
+         */
+
+        assertThat(rootNode.children.get(0).toString(), equalToIgnoringCase("George Oscar"));
+        assertThat(rootNode.children.get(1).toString(), equalToIgnoringCase("Michael"));
+        assertThat(rootNode.children.get(2).toString(), equalToIgnoringCase("Lindsay"));
+        assertThat(rootNode.children.get(3).toString(), equalToIgnoringCase("Buster"));
+    }
+
+    @Test
+    public void checkNumberOfGrandchildren() {
+
+    }
+
+    @Test
+    public void checkGeorgeMichaelIsGrandson() {
+
+    }
+
+    @Test
+    public void checkMaebyIsGranddaughter() {
+
     }
 
 }
