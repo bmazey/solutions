@@ -16,8 +16,8 @@ public class FamilyTree {
         TreeNode buster = lucille.addChild("Buster");
 
         //3rd generation
-
-
+        TreeNode georgeMichael = michael.addChild("George Michael");
+        TreeNode maeby = lindsay.addChild("Maeby");
 
         return lucille;
     }
