@@ -1,6 +1,6 @@
 package patterns.factory;
 
-public class PlayMazeGame {
+public class PlayMazeGames {
 
     public static void main(String[] args) {
         MazeGame ordinaryMazeGame = new OrdinaryMazeGame();
