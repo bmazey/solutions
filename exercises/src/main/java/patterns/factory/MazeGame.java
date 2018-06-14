@@ -9,6 +9,8 @@ public abstract class MazeGame {
 
     /**
      * Maze Game's default constructor just makes two rooms - nothing special.
+     *
+     * Notice the makeRoom() method below; it's abstract so that means it's a contract.
      */
 
     public MazeGame() {
