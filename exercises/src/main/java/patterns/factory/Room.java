@@ -5,8 +5,10 @@ public abstract class Room {
     /**
      * This class establishes a baseline for a Room.
      * Basically, this only enforces that the Rooms have a number of walls, and a setter / getter.
+     *
+     * TODO - is is normal to put values in here?
      */
-    private int numberOfWalls;
+    private int numberOfWalls = 4;
     private int numberOfDoors;
     private String color;
     private boolean isMirrored;
