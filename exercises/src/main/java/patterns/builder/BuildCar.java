@@ -7,6 +7,6 @@ public class BuildCar {
 
         final CarBuildDirector carBuildDirector = new CarBuildDirector(builder);
 
-        System.out.println(carBuildDirector.construct());
+        System.out.println(carBuildDirector.constructSUV());
     }
 }

@@ -11,7 +11,25 @@ public class CarBuildDirector {
         this.builder = builder;
     }
 
-    public Car construct() {
+    public Car constructSUV() {
+        return builder.setWheels(4)
+                .setColor("Red")
+                .build();
+    }
+
+    public Car constructSportscar() {
+        return builder.setWheels(4)
+                .setColor("Red")
+                .build();
+    }
+
+    public Car constructEighteenWheeler() {
+        return builder.setWheels(4)
+                .setColor("Red")
+                .build();
+    }
+
+    public Car constructSedan() {
         return builder.setWheels(4)
                 .setColor("Red")
                 .build();
