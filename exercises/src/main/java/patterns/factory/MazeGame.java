@@ -21,5 +21,5 @@ public abstract class MazeGame {
         rooms.add(room2);
     }
 
-    abstract protected Room makeRoom();
+    abstract public Room makeRoom();
 }
