@@ -1,6 +1,6 @@
 package patterns.builder;
 
-class Car {
+public class Car {
     private int wheels;
     private int doors;
     private String color;

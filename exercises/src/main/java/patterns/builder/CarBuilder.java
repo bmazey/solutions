@@ -3,7 +3,7 @@ package patterns.builder;
 /**
  * The builder abstraction.
  */
-interface CarBuilder {
+public interface CarBuilder {
     Car build();
 
     CarBuilder setColor(final String color);

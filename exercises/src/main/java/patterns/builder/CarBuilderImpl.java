@@ -1,6 +1,6 @@
 package patterns.builder;
 
-class CarBuilderImpl implements CarBuilder {
+public class CarBuilderImpl implements CarBuilder {
 
     private Car car;
 
