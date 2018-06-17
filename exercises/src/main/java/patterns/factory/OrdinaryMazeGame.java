@@ -8,7 +8,7 @@ public class OrdinaryMazeGame extends MazeGame {
      */
 
     @Override
-    protected Room makeRoom() {
+    public Room makeRoom() {
         return new OrdinaryRoom();
     }
 }
