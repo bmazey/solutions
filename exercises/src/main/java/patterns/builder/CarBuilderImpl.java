@@ -1,6 +1,7 @@
 package patterns.builder;
 
 class CarBuilderImpl implements CarBuilder {
+
     private Car car;
 
     public CarBuilderImpl() {
@@ -18,6 +19,21 @@ class CarBuilderImpl implements CarBuilder {
 
     public CarBuilder setWheels(final int wheels) {
         car.setWheels(wheels);
+        return this;
+    }
+
+    public CarBuilder setHasTrunk(final boolean hasTrunk) {
+        car.setHasTrunk(hasTrunk);
+        return this;
+    }
+
+    public CarBuilder setFuel(final String fuel) {
+        car.setFuel(fuel);
+        return this;
+    }
+
+    public CarBuilder setDoors(final int doors) {
+        car.setDoors(doors);
         return this;
     }
 }

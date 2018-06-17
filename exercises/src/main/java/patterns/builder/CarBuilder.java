@@ -10,4 +10,10 @@ interface CarBuilder {
 
     CarBuilder setWheels(final int wheels);
 
+    CarBuilder setHasTrunk(final boolean hasTrunk);
+
+    CarBuilder setFuel(final String fuel);
+
+    CarBuilder setDoors(final int doors);
+
 }
