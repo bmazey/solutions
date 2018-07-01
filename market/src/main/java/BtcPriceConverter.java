@@ -1,6 +1,9 @@
 import api.KrakenApi;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import dto.Ticker;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -21,6 +24,12 @@ public class BtcPriceConverter {
         input.put("pair", "XBTUSD");
         response = api.queryPublic(KrakenApi.Method.TICKER, input);
         return response;
+    }
+
+    public String getBtcUsdPrice() throws IOException {
+        Ticker ticker = new ObjectMapper().readValue(this.getBtcUsdPriceResponse(), Ticker.class);
+        String price = ticker.getResult().getPair().getA().get(0);
+        return price;
     }
 
     public String getBtcCanPriceResponse() throws IOException {

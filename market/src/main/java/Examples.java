@@ -32,6 +32,7 @@ public class Examples {
 //        System.out.println(response);
 
         BtcPriceConverter btc = new BtcPriceConverter();
-        System.out.println(btc.getBtcCanPriceResponse());
+        System.out.println(btc.getBtcUsdPriceResponse());
+        System.out.println(btc.getBtcUsdPrice());
     }
 }
