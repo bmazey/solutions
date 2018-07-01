@@ -31,7 +31,7 @@ public class EthPrice {
 
     public String getEthUsdPrice() throws IOException {
         Ticker ticker = new ObjectMapper().readValue(this.getEthUsdPriceResponse(), Ticker.class);
-        String price = ticker.getResult().getPair().getA().get(0);
+        String price = ticker.getResult().getPair().getO();
         return price;
     }
 
@@ -50,7 +50,7 @@ public class EthPrice {
 
     public String getEthCadPrice() throws IOException {
         Ticker ticker = new ObjectMapper().readValue(this.getEthCadPriceResponse(), Ticker.class);
-        String price = ticker.getResult().getPair().getA().get(0);
+        String price = ticker.getResult().getPair().getO();
         return price;
     }
 
@@ -69,7 +69,7 @@ public class EthPrice {
 
     public String getEthJpyPrice() throws IOException {
         Ticker ticker = new ObjectMapper().readValue(this.getEthJpyPriceResponse(), Ticker.class);
-        String price = ticker.getResult().getPair().getA().get(0);
+        String price = ticker.getResult().getPair().getO();
         return price;
     }
 

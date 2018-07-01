@@ -31,7 +31,7 @@ public class BtcPrice {
 
     public String getBtcUsdPrice() throws IOException {
         Ticker ticker = new ObjectMapper().readValue(this.getBtcUsdPriceResponse(), Ticker.class);
-        String price = ticker.getResult().getPair().getA().get(0);
+        String price = ticker.getResult().getPair().getO();
         return price;
     }
 
@@ -50,7 +50,7 @@ public class BtcPrice {
 
     public String getBtcCadPrice() throws IOException {
         Ticker ticker = new ObjectMapper().readValue(this.getBtcCadPriceResponse(), Ticker.class);
-        String price = ticker.getResult().getPair().getA().get(0);
+        String price = ticker.getResult().getPair().getO();
         return price;
     }
 
@@ -69,7 +69,7 @@ public class BtcPrice {
 
     public String getBtcJpyPrice() throws IOException {
         Ticker ticker = new ObjectMapper().readValue(this.getBtcJpyPriceResponse(), Ticker.class);
-        String price = ticker.getResult().getPair().getA().get(0);
+        String price = ticker.getResult().getPair().getO();
         return price;
     }
 

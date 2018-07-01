@@ -46,7 +46,7 @@ public class EthPriceTest {
         String response = eth.getEthUsdPriceResponse();
         JsonNode rootNode = mapper.readTree(response);
 
-        assertEquals(rootNode.get("result").get("XETHZUSD").get("a").get(0).asText(), price);
+        assertEquals(rootNode.get("result").get("XETHZUSD").get("o").asText(), price);
     }
 
     @Test
@@ -79,7 +79,7 @@ public class EthPriceTest {
         String response = eth.getEthCadPriceResponse();
         JsonNode rootNode = mapper.readTree(response);
 
-        assertEquals(rootNode.get("result").get("XETHZCAD").get("a").get(0).asText(), price);
+        assertEquals(rootNode.get("result").get("XETHZCAD").get("o").asText(), price);
     }
 
     @Test
@@ -102,6 +102,6 @@ public class EthPriceTest {
         String response = eth.getEthJpyPriceResponse();
         JsonNode rootNode = mapper.readTree(response);
 
-        assertEquals(rootNode.get("result").get("XETHZJPY").get("a").get(0).asText(), price);
+        assertEquals(rootNode.get("result").get("XETHZJPY").get("o").asText(), price);
     }
 }

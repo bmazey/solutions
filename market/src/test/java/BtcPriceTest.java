@@ -64,7 +64,7 @@ public class BtcPriceTest {
         String response = btc.getBtcUsdPriceResponse();
         JsonNode rootNode = mapper.readTree(response);
 
-        assertEquals(rootNode.get("result").get("XXBTZUSD").get("a").get(0).asText(), price);
+        assertEquals(rootNode.get("result").get("XXBTZUSD").get("o").asText(), price);
     }
 
     @Test
@@ -111,7 +111,7 @@ public class BtcPriceTest {
         String response = btc.getBtcCadPriceResponse();
         JsonNode rootNode = mapper.readTree(response);
 
-        assertEquals(rootNode.get("result").get("XXBTZCAD").get("a").get(0).asText(), price);
+        assertEquals(rootNode.get("result").get("XXBTZCAD").get("o").asText(), price);
     }
 
     @Test
@@ -134,6 +134,6 @@ public class BtcPriceTest {
         String response = btc.getBtcJpyPriceResponse();
         JsonNode rootNode = mapper.readTree(response);
 
-        assertEquals(rootNode.get("result").get("XXBTZJPY").get("a").get(0).asText(), price);
+        assertEquals(rootNode.get("result").get("XXBTZJPY").get("o").asText(), price);
     }
 }
