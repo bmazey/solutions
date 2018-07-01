@@ -1,19 +1,18 @@
-package dto;
-
+package dto.price;
 
 import com.fasterxml.jackson.annotation.JsonAlias;
 
-public class Result {
+public class PriceResult {
 
     @JsonAlias({"XXBTZUSD", "XXBTZCAD", "XXBTZJPY",
                 "XETHZUSD", "XETHZCAD", "XETHZJPY"})
-    private Pair pair;
+    private TickerPair pair;
 
-    public Pair getPair() {
+    public TickerPair getPair() {
         return pair;
     }
 
-    public void setPair(Pair pair) {
+    public void setPair(TickerPair pair) {
         this.pair = pair;
     }
 }

@@ -1,13 +1,6 @@
-
-import api.KrakenApi;
-
 import java.io.IOException;
 import java.security.InvalidKeyException;
 import java.security.NoSuchAlgorithmException;
-import java.util.HashMap;
-import java.util.Map;
-
-import api.KrakenApi.Method;
 
 public class Examples {
 
@@ -31,10 +24,14 @@ public class Examples {
 //        response = api.queryPrivate(Method.BALANCE, input);
 //        System.out.println(response);
 
-        BtcPriceConverter btc = new BtcPriceConverter();
+        BtcPrice btc = new BtcPrice();
 
         System.out.println(btc.getBtcUsdPriceResponse());
         System.out.println(btc.getBtcUsdPrice());
+
+        BtcOhlc btcohlc = new BtcOhlc();
+
+        System.out.println(btcohlc.getBtcUsdOhlcResponse());
 
         System.out.println(btc.getBtcCadPriceResponse());
         System.out.println(btc.getBtcCadPrice());
@@ -42,7 +39,7 @@ public class Examples {
         System.out.println(btc.getBtcJpyPriceResponse());
         System.out.println(btc.getBtcJpyPrice());
 
-        EthPriceConverter eth = new EthPriceConverter();
+        EthPrice eth = new EthPrice();
 
         System.out.println(eth.getEthUsdPriceResponse());
         System.out.println(eth.getEthUsdPrice());

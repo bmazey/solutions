@@ -1,11 +1,11 @@
-package dto;
+package dto.price;
 
 import java.util.List;
 
 public class Ticker {
 
     List<String> Error;
-    Result result;
+    PriceResult result;
 
     public List<String> getError() {
         return Error;
@@ -15,11 +15,11 @@ public class Ticker {
         Error = error;
     }
 
-    public Result getResult() {
+    public PriceResult getResult() {
         return result;
     }
 
-    public void setResult(Result result) {
+    public void setResult(PriceResult result) {
         this.result = result;
     }
 }

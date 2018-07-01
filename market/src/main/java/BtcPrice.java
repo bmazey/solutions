@@ -1,16 +1,16 @@
 import api.KrakenApi;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import dto.Ticker;
+import dto.price.Ticker;
 
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
-public class BtcPriceConverter {
+public class BtcPrice {
 
     private KrakenApi api;
 
-    public BtcPriceConverter() {
+    public BtcPrice() {
         this.api = new KrakenApi();
         this.api.setKey("oenG97umzj5IrnldcxqGSt9SQ/xuGIA2xLtnoAiYCPUDkQ5KYBgQTP+N");
         this.api.setSecret("LjHtZKrY9WOnVnUnM0d5KT8Y57DFHkexYTlMokXj0qx/VTijsN9N0YEA2ttI3axFNhuoUV6Hcgx4O0uk75bcyw==");

@@ -1,8 +1,8 @@
-package dto;
+package dto.price;
 
 import java.util.List;
 
-public class Pair {
+public class TickerPair {
 
     private List<String> a;
     private List<String> b;
