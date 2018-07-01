@@ -48,12 +48,18 @@ public class BtcPriceTest {
     }
 
     @Test
-    public void getBtcUsdPrice() {
+    public void getBtcUsdPrice() throws IOException {
         /**
-         * Passing this test may not be enough! This test will print a value to the console - it must match the below!
+         * This test will look for the current price of XBT.
          * GET https://api.kraken.com/0/public/Ticker?pair=XBTUSD
-         *
          */
+
+        String price = btc.getBtcUsdPrice();
+
+        String response = btc.getBtcUsdPriceResponse();
+        JsonNode rootNode = mapper.readTree(response);
+
+        assertEquals(rootNode.get("result").get("XXBTZUSD").get("a").get(0).asText(), price);
     }
 
 }
