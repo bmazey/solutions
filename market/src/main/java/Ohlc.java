@@ -1,6 +1,4 @@
 import api.KrakenApi;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import dto.price.Ticker;
 
 import java.io.IOException;
 import java.util.HashMap;

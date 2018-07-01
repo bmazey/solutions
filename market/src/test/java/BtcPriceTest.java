@@ -14,8 +14,9 @@ public class BtcPriceTest {
 
     @Test
     public void getKrakenBtcUsdResponse() throws IOException {
+
         /**
-         * This test looks for a Kraken API JSON response! (The price of XBT in USD)
+         * This test looks for a Kraken API JSON response! (bitcoin USD pair response)
          * GET https://api.kraken.com/0/public/Ticker?pair=XBTUSD
          */
 
@@ -51,7 +52,7 @@ public class BtcPriceTest {
     public void getBtcUsdPrice() throws IOException {
 
         /**
-         * This test will look for the current price of XBT in USD.
+         * This test will look for the current price of bitcoin in USD.
          * GET https://api.kraken.com/0/public/Ticker?pair=XBTUSD
          *
          * NOTE!
@@ -70,7 +71,7 @@ public class BtcPriceTest {
     public void getKrakenBtcCadResponse() throws IOException {
 
         /**
-         * This test looks for a Kraken API JSON response! (The price of XBT in CAD)
+         * This test looks for a Kraken API JSON response! (bitcoin CAD pair response)
          * GET https://api.kraken.com/0/public/Ticker?pair=XBTCAD
          */
 
@@ -97,11 +98,12 @@ public class BtcPriceTest {
     public void getBtcCadPrice() throws IOException {
 
         /**
-         * This test will look for the current price of XBT in USD.
+         * This test will look for the current price of bitcoin in CAD.
          * GET https://api.kraken.com/0/public/Ticker?pair=XBTCAD
          *
          * NOTE!
          * You are not allowed to use a JsonNode in your implementation!
+         *
          */
 
         String price = btc.getBtcCadPrice();

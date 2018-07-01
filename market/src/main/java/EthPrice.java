@@ -25,6 +25,10 @@ public class EthPrice {
         return response;
     }
 
+    public Ticker getEthUsdTicker() throws IOException {
+        return new ObjectMapper().readValue(this.getEthUsdPriceResponse(), Ticker.class);
+    }
+
     public String getEthUsdPrice() throws IOException {
         Ticker ticker = new ObjectMapper().readValue(this.getEthUsdPriceResponse(), Ticker.class);
         String price = ticker.getResult().getPair().getA().get(0);
@@ -40,6 +44,10 @@ public class EthPrice {
         return response;
     }
 
+    public Ticker getEthCadTicker() throws IOException {
+        return new ObjectMapper().readValue(this.getEthCadPriceResponse(), Ticker.class);
+    }
+
     public String getEthCadPrice() throws IOException {
         Ticker ticker = new ObjectMapper().readValue(this.getEthCadPriceResponse(), Ticker.class);
         String price = ticker.getResult().getPair().getA().get(0);
@@ -53,6 +61,10 @@ public class EthPrice {
         input.put("pair", "ETHJPY");
         response = api.queryPublic(KrakenApi.Method.TICKER, input);
         return response;
+    }
+
+    public Ticker getEthJpyTicker() throws IOException {
+        return new ObjectMapper().readValue(this.getEthJpyPriceResponse(), Ticker.class);
     }
 
     public String getEthJpyPrice() throws IOException {
