@@ -7,3 +7,7 @@
 *.iml
 out
 gen
+
+exercises/target/
+interview/target/
+target/
