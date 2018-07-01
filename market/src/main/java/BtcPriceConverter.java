@@ -3,7 +3,6 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import dto.Ticker;
 
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -43,6 +42,21 @@ public class BtcPriceConverter {
 
     public String getBtcCadPrice() throws IOException {
         Ticker ticker = new ObjectMapper().readValue(this.getBtcCadPriceResponse(), Ticker.class);
+        String price = ticker.getResult().getPair().getA().get(0);
+        return price;
+    }
+
+    public String getBtcJpyPriceResponse() throws IOException {
+        String response;
+        Map<String, String> input = new HashMap<>();
+
+        input.put("pair", "XBTJPY");
+        response = api.queryPublic(KrakenApi.Method.TICKER, input);
+        return response;
+    }
+
+    public String getBtcJpyPrice() throws IOException {
+        Ticker ticker = new ObjectMapper().readValue(this.getBtcJpyPriceResponse(), Ticker.class);
         String price = ticker.getResult().getPair().getA().get(0);
         return price;
     }

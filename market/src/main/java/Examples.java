@@ -38,5 +38,9 @@ public class Examples {
 
         System.out.println(btc.getBtcCadPriceResponse());
         System.out.println(btc.getBtcCadPrice());
+
+        System.out.println(btc.getBtcJpyPriceResponse());
+        System.out.println(btc.getBtcJpyPrice());
+
     }
 }

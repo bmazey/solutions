@@ -5,7 +5,7 @@ import com.fasterxml.jackson.annotation.JsonAlias;
 
 public class Result {
 
-    @JsonAlias({"XXBTZUSD","XXBTZCAD"})
+    @JsonAlias({"XXBTZUSD", "XXBTZCAD", "XXBTZJPY"})
     private Pair pair;
 
     public Pair getPair() {
