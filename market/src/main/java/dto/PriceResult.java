@@ -1,4 +1,4 @@
-package dto.price;
+package dto;
 
 import com.fasterxml.jackson.annotation.JsonAlias;
 

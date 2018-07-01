@@ -1,11 +1,11 @@
-package dto.ohlc;
+package dto;
 
 import java.util.List;
 
-public class Ohlc {
+public class Ticker {
 
     List<String> error;
-    OhlcResult result;
+    PriceResult result;
 
     public List<String> getError() {
         return error;
@@ -15,11 +15,11 @@ public class Ohlc {
         this.error = error;
     }
 
-    public OhlcResult getResult() {
+    public PriceResult getResult() {
         return result;
     }
 
-    public void setResult(OhlcResult result) {
+    public void setResult(PriceResult result) {
         this.result = result;
     }
 }

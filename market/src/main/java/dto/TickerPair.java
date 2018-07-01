@@ -1,4 +1,4 @@
-package dto.price;
+package dto;
 
 import java.util.List;
 

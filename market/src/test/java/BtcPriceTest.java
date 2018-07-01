@@ -1,6 +1,6 @@
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import dto.price.Ticker;
+import dto.Ticker;
 import org.junit.Test;
 
 import java.io.IOException;
