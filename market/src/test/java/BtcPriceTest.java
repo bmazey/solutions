@@ -1,13 +1,19 @@
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import dto.price.Ticker;
 import org.junit.Test;
 
 import java.io.IOException;
 
+import static org.junit.Assert.assertEquals;
+
 public class BtcPriceTest {
 
     BtcPrice btc = new BtcPrice();
+    ObjectMapper mapper = new ObjectMapper();
 
     @Test
-    public void getKrakenUsdBtcTickerResponse() throws IOException {
+    public void getKrakenBtcUsdTickerResponse() throws IOException {
         /**
          * This test looks for a Kraken API JSON response!
          * GET https://api.kraken.com/0/public/Ticker?pair=XBTUSD
@@ -15,11 +21,39 @@ public class BtcPriceTest {
 
         String response = btc.getBtcUsdPriceResponse();
         assert JsonValidator.isValidJSON(response);
+
+        JsonNode rootNode = mapper.readTree(response);
+        assert !rootNode.get("result").get("XXBTZUSD").isNull();
     }
 
     @Test
-    public void getUsdPriceOfBtc() {
+    public void getBtcUsdTicker() throws IOException {
 
+        /**
+         * Read about JSON ...
+         * https://json.org/
+         *
+         * You will also need to know how to use a marshalling technology, such as Jackson (included via Maven).
+         * http://www.baeldung.com/jackson-object-mapper-tutorial
+         *
+         * Good luck!
+         */
+
+        String response = btc.getBtcUsdPriceResponse();
+        JsonNode rootNode = mapper.readTree(response);
+
+        Ticker ticker = btc.getBtcUsdTicker();
+        assertEquals(ticker.getResult().getPair().getA().size(), rootNode.get("result").get("XXBTZUSD").get("a").size());
+        assertEquals(ticker.getResult().getPair().getO(), rootNode.get("result").get("XXBTZUSD").get("o").asText());
+    }
+
+    @Test
+    public void getBtcUsdPrice() {
+        /**
+         * Passing this test may not be enough! This test will print a value to the console - it must match the below!
+         * GET https://api.kraken.com/0/public/Ticker?pair=XBTUSD
+         *
+         */
     }
 
 }

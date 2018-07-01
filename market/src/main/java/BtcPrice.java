@@ -25,6 +25,10 @@ public class BtcPrice {
         return response;
     }
 
+    public Ticker getBtcUsdTicker() throws IOException {
+        return new ObjectMapper().readValue(this.getBtcUsdPriceResponse(), Ticker.class);
+    }
+
     public String getBtcUsdPrice() throws IOException {
         Ticker ticker = new ObjectMapper().readValue(this.getBtcUsdPriceResponse(), Ticker.class);
         String price = ticker.getResult().getPair().getA().get(0);
