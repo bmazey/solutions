@@ -1,10 +1,11 @@
 package dto;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
+
+import com.fasterxml.jackson.annotation.JsonAlias;
 
 public class Result {
 
-    @JsonProperty("XXBTZUSD")
+    @JsonAlias({"XXBTZUSD","XXBTZCAD"})
     private Pair pair;
 
     public Pair getPair() {

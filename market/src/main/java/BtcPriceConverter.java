@@ -32,13 +32,19 @@ public class BtcPriceConverter {
         return price;
     }
 
-    public String getBtcCanPriceResponse() throws IOException {
+    public String getBtcCadPriceResponse() throws IOException {
         String response;
         Map<String, String> input = new HashMap<>();
 
         input.put("pair", "XBTCAD");
         response = api.queryPublic(KrakenApi.Method.TICKER, input);
         return response;
+    }
+
+    public String getBtcCadPrice() throws IOException {
+        Ticker ticker = new ObjectMapper().readValue(this.getBtcCadPriceResponse(), Ticker.class);
+        String price = ticker.getResult().getPair().getA().get(0);
+        return price;
     }
 
     public static void main (String[] args) {
