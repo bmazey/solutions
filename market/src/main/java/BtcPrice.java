@@ -44,6 +44,10 @@ public class BtcPrice {
         return response;
     }
 
+    public Ticker getBtcCadTicker() throws IOException {
+        return new ObjectMapper().readValue(this.getBtcCadPriceResponse(), Ticker.class);
+    }
+
     public String getBtcCadPrice() throws IOException {
         Ticker ticker = new ObjectMapper().readValue(this.getBtcCadPriceResponse(), Ticker.class);
         String price = ticker.getResult().getPair().getA().get(0);
@@ -57,6 +61,10 @@ public class BtcPrice {
         input.put("pair", "XBTJPY");
         response = api.queryPublic(KrakenApi.Method.TICKER, input);
         return response;
+    }
+
+    public Ticker getBtcJpyTicker() throws IOException {
+        return new ObjectMapper().readValue(this.getBtcJpyPriceResponse(), Ticker.class);
     }
 
     public String getBtcJpyPrice() throws IOException {

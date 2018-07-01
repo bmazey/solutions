@@ -29,7 +29,7 @@ public class Examples {
         System.out.println(btc.getBtcUsdPriceResponse());
         System.out.println(btc.getBtcUsdPrice());
 
-        BtcOhlc btcohlc = new BtcOhlc();
+        Ohlc btcohlc = new Ohlc();
 
         System.out.println(btcohlc.getBtcUsdOhlcResponse());
 

@@ -13,9 +13,9 @@ public class BtcPriceTest {
     ObjectMapper mapper = new ObjectMapper();
 
     @Test
-    public void getKrakenBtcUsdTickerResponse() throws IOException {
+    public void getKrakenBtcUsdResponse() throws IOException {
         /**
-         * This test looks for a Kraken API JSON response!
+         * This test looks for a Kraken API JSON response! (The price of XBT in USD)
          * GET https://api.kraken.com/0/public/Ticker?pair=XBTUSD
          */
 
@@ -49,9 +49,13 @@ public class BtcPriceTest {
 
     @Test
     public void getBtcUsdPrice() throws IOException {
+
         /**
-         * This test will look for the current price of XBT.
+         * This test will look for the current price of XBT in USD.
          * GET https://api.kraken.com/0/public/Ticker?pair=XBTUSD
+         *
+         * NOTE!
+         * You are not allowed to use a JsonNode in your implementation!
          */
 
         String price = btc.getBtcUsdPrice();
@@ -62,4 +66,72 @@ public class BtcPriceTest {
         assertEquals(rootNode.get("result").get("XXBTZUSD").get("a").get(0).asText(), price);
     }
 
+    @Test
+    public void getKrakenBtcCadResponse() throws IOException {
+
+        /**
+         * This test looks for a Kraken API JSON response! (The price of XBT in CAD)
+         * GET https://api.kraken.com/0/public/Ticker?pair=XBTCAD
+         */
+
+        String response = btc.getBtcCadPriceResponse();
+        assert JsonValidator.isValidJSON(response);
+
+        JsonNode rootNode = mapper.readTree(response);
+        assert !rootNode.get("result").get("XXBTZCAD").isNull();
+
+    }
+
+    @Test
+    public void getBtcCadTicker() throws IOException {
+
+        String response = btc.getBtcCadPriceResponse();
+        JsonNode rootNode = mapper.readTree(response);
+
+        Ticker ticker = btc.getBtcCadTicker();
+        assertEquals(ticker.getResult().getPair().getA().size(), rootNode.get("result").get("XXBTZCAD").get("a").size());
+        assertEquals(ticker.getResult().getPair().getO(), rootNode.get("result").get("XXBTZCAD").get("o").asText());
+    }
+
+    @Test
+    public void getBtcCadPrice() throws IOException {
+
+        /**
+         * This test will look for the current price of XBT in USD.
+         * GET https://api.kraken.com/0/public/Ticker?pair=XBTCAD
+         *
+         * NOTE!
+         * You are not allowed to use a JsonNode in your implementation!
+         */
+
+        String price = btc.getBtcCadPrice();
+
+        String response = btc.getBtcCadPriceResponse();
+        JsonNode rootNode = mapper.readTree(response);
+
+        assertEquals(rootNode.get("result").get("XXBTZCAD").get("a").get(0).asText(), price);
+    }
+
+    @Test
+    public void getBtcJpyTicker() throws IOException {
+
+        String response = btc.getBtcJpyPriceResponse();
+        JsonNode rootNode = mapper.readTree(response);
+
+        Ticker ticker = btc.getBtcJpyTicker();
+        assertEquals(ticker.getResult().getPair().getA().size(), rootNode.get("result").get("XXBTZJPY").get("a").size());
+        assertEquals(ticker.getResult().getPair().getO(), rootNode.get("result").get("XXBTZJPY").get("o").asText());
+    }
+
+
+    @Test
+    public void getBtcJpyPrice() throws IOException {
+
+        String price = btc.getBtcJpyPrice();
+
+        String response = btc.getBtcJpyPriceResponse();
+        JsonNode rootNode = mapper.readTree(response);
+
+        assertEquals(rootNode.get("result").get("XXBTZJPY").get("a").get(0).asText(), price);
+    }
 }
