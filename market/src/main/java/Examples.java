@@ -42,5 +42,16 @@ public class Examples {
         System.out.println(btc.getBtcJpyPriceResponse());
         System.out.println(btc.getBtcJpyPrice());
 
+        EthPriceConverter eth = new EthPriceConverter();
+
+        System.out.println(eth.getEthUsdPriceResponse());
+        System.out.println(eth.getEthUsdPrice());
+
+        System.out.println(eth.getEthCadPriceResponse());
+        System.out.println(eth.getEthCadPrice());
+
+        System.out.println(eth.getEthJpyPriceResponse());
+        System.out.println(eth.getEthJpyPrice());
+
     }
 }
