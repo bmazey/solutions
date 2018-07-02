@@ -40,4 +40,19 @@ public class PlagiarismTest {
         ArrayList<Integer> matches = RabinKarp.search(pat, txt, 101);
         assertThat(matches.isEmpty(), equalTo(true));
     }
+
+    @Test
+    public void assertIsAlsoPlagiarism() {
+        String pat ="It is impossible. We live, as we dream-alone...";
+        String txt = "It seems to me I am trying to tell you a dream--making a vain attempt, because no relation of " +
+                "a dream can convey the dream-sensation, that commingling of absurdity, surprise, and bewilderment " +
+                "in a tremor of struggling revolt, that notion of being captured by the incredible which is of the " +
+                "very essence of dreams...No, it is impossible; it is impossible to convey the life-sensation of any " +
+                "given epoch of one's existence--that which makes its truth, its meaning--its subtle and penetrating " +
+                "essence. It is impossible. We live, as we dream-alone...";
+
+        ArrayList<Integer> matches = RabinKarp.search(pat, txt, 101);
+        assertThat(matches.size(), equalTo(1));
+        assertThat(matches.get(0), equalTo(499));
+    }
 }
