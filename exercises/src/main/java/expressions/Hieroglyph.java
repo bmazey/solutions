@@ -14,7 +14,7 @@ public class Hieroglyph {
     }
 
     public boolean discoverPyramidInSand(String s) {
-        Pattern p = Pattern.compile("(sand*)pyramid(sand*)");
+        Pattern p = Pattern.compile("(sand*)(.*?)pyramid(.*?)(sand*)");
         Matcher m = p.matcher(s);
         return m.matches();
     }
@@ -26,7 +26,7 @@ public class Hieroglyph {
     }
 
     public boolean captureGoldScarab(String s) {
-        Pattern p = Pattern.compile("(gold)(?=.*scarab.*)");
+        Pattern p = Pattern.compile("(.*?)gold(.*?)scarab");
         Matcher m = p.matcher(s);
         return m.matches();
     }
@@ -40,11 +40,12 @@ public class Hieroglyph {
     public List<String> raidTutsTomb(String s) {
         ArrayList<String> loot = new ArrayList<>();
 
-        Pattern p = Pattern.compile("(?!trap)(gold|incense|gemstones|artifacts){2,}?");
+        Pattern p = Pattern.compile("(?!trap)(gold|incense|artifacts|treasure){2,}+");
         Matcher m = p.matcher(s);
 
         int i = 0;
         while (m.find()) {
+            System.out.println("found: " + m.group(i));
             loot.add(m.group(i));
             i++;
         }
