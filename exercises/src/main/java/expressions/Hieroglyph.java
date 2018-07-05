@@ -1,7 +1,5 @@
 package expressions;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -37,20 +35,9 @@ public class Hieroglyph {
         return m.matches();
     }
 
-    public List<String> raidTutsTomb(String s) {
-        ArrayList<String> loot = new ArrayList<>();
 
-        Pattern p = Pattern.compile("(?!trap)(gold|incense|artifacts|treasure){2,}+");
-        Matcher m = p.matcher(s);
-
-        int i = 0;
-        while (m.find()) {
-            System.out.println("found: " + m.group(i));
-            loot.add(m.group(i));
-            i++;
-        }
-
-        return loot;
+    public String replaceWithFalseIdol(String s) {
+        return s.replaceAll("skull", "idol");
     }
 
     public static void main (String[] args) {

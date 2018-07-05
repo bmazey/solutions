@@ -61,15 +61,12 @@ public class HieroglyphTest {
     }
 
     @Test
-    public void stealFromTutsTomb() {
-        List<String> loot = new ArrayList<>();
+    public void stealCrystalSkull() {
 
-        loot = hiero.raidTutsTomb("gold incense sand artifacts");
-        assert loot.contains("incense");
-        assert loot.contains("gold");
-        assert loot.contains("treasure");
-
-
+        // kind of like how Indiana Jones swapped the skull with an idol in the haunted temple ..
+        assertEquals(hiero.replaceWithFalseIdol("crystal skull"), "crystal idol");
+        assertEquals(hiero.replaceWithFalseIdol("skull crystal skull"), "idol crystal idol");
+        assertEquals(hiero.replaceWithFalseIdol("crystal skull skull"), "crystal idol idol");
     }
 
 
