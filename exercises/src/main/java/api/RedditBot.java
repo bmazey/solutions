@@ -6,14 +6,13 @@ import net.dean.jraw.http.NetworkAdapter;
 import net.dean.jraw.http.OkHttpNetworkAdapter;
 import net.dean.jraw.http.UserAgent;
 import net.dean.jraw.models.*;
-import net.dean.jraw.oauth.AccountHelper;
 import net.dean.jraw.oauth.Credentials;
 import net.dean.jraw.oauth.OAuthHelper;
 import net.dean.jraw.pagination.DefaultPaginator;
 import net.dean.jraw.pagination.Paginator;
 import net.dean.jraw.references.*;
-import net.dean.jraw.tree.CommentNode;
-import net.dean.jraw.tree.ReplyCommentNode;
+
+import java.util.List;
 
 
 public class RedditBot {
@@ -61,26 +60,47 @@ public class RedditBot {
         }
     }
 
+    public int getHigginsCommentAndLinkKarma() {
+
+        // Return the total amount of comment + link karma for higgins_bot
+
+        int i = 0;
+
+        SelfUserReference self = new SelfUserReference(this.reddit);
+        List<KarmaBySubreddit> karma = self.karma();
+        for (KarmaBySubreddit ksub : karma) {
+            i += ksub.getCommentKarma();
+            i += ksub.getLinkKarma();
+        }
+
+        return i;
+    }
+
     public void createSelfPost() {
 
-        //Submit Self Post
-        SubredditReference subreddit = new SubredditReference(this.reddit, "test");
-        subreddit.submit(SubmissionKind.SELF, "test", "test", false);
-
-        // MAKE SURE TO SAVE THE ID VALUE OF YOUR POST!
+        // In this method you must submit a Self Post
+        // MAKE SURE TO SAVE THE ID VALUE OF YOUR POST! (from the console)
         // Otherwise you'll have to use some more advanced methods to get the ID ...
 
+        SubredditReference subreddit = new SubredditReference(this.reddit, "test");
+        subreddit.submit(SubmissionKind.SELF, "test", "test", false);
     }
 
     public void createCommentOnPost() {
 
-        //Submit comment
-        CommentReference comment = new CommentReference(this.reddit, "8wkjpr/test/");
-        comment.reply("test comment!");
+        //In this method you must create a comment on the post you just created.
+
+        SubmissionReference submission = new SubmissionReference(this.reddit, "8wkjpr");
+        submission.reply("test comment");
+
 
     }
 
     public void sendDirectMessage() {
+
+        // Send a direct message to me on reddit!
+        // Username: Penance
+
         SelfUserReference self = new SelfUserReference(reddit);
         self.inbox().compose("Penance", "test message", "this is a test message");
     }
@@ -90,13 +110,16 @@ public class RedditBot {
         /**
          * LOOK HERE!
          *
-         * https://github.com/mattbdean/JRAW/blob/master/ENDPOINTS.md
+         * JRAW: https://github.com/mattbdean/JRAW/blob/master/ENDPOINTS.md
+         *
+         * Reddit API Documentation: https://www.reddit.com/dev/api/
          */
 
         RedditBot higgins = new RedditBot();
-        higgins.printFrontPageMonthlyTop();
-        higgins.createSelfPost();
-        higgins.createCommentOnPost();
-        higgins.sendDirectMessage();
+        //higgins.printFrontPageMonthlyTop();
+        //higgins.createSelfPost();
+        //higgins.createCommentOnPost();
+        //higgins.sendDirectMessage();
+        //System.out.println(higgins.getHigginsCommentAndLinkKarma());
     }
 }
