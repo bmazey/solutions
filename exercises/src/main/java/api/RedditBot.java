@@ -10,10 +10,7 @@ import net.dean.jraw.oauth.Credentials;
 import net.dean.jraw.oauth.OAuthHelper;
 import net.dean.jraw.pagination.DefaultPaginator;
 import net.dean.jraw.pagination.Paginator;
-import net.dean.jraw.references.CommentReference;
-import net.dean.jraw.references.ReplyableReference;
 import net.dean.jraw.references.SubredditReference;
-import sun.plugin.dom.core.Comment;
 
 
 public class RedditBot {
@@ -23,36 +20,8 @@ public class RedditBot {
     private NetworkAdapter http;
     private RedditClient reddit;
 
-    public Credentials getCredentials() {
-        return credentials;
-    }
-
-    public void setCredentials(Credentials credentials) {
-        this.credentials = credentials;
-    }
-
-    public UserAgent getUserAgent() {
-        return userAgent;
-    }
-
-    public void setUserAgent(UserAgent userAgent) {
-        this.userAgent = userAgent;
-    }
-
-    public NetworkAdapter getHttp() {
-        return http;
-    }
-
-    public void setHttp(NetworkAdapter http) {
-        this.http = http;
-    }
-
     public RedditClient getReddit() {
         return reddit;
-    }
-
-    public void setReddit(RedditClient reddit) {
-        this.reddit = reddit;
     }
 
     public RedditBot() {
@@ -87,7 +56,6 @@ public class RedditBot {
                         post.getTitle(), post.getSubreddit(), post.getScore(), post.getUrl()));
             }
         }
-
     }
 
     public void createSelfPost() {
