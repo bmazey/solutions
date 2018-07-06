@@ -10,7 +10,12 @@ import net.dean.jraw.oauth.Credentials;
 import net.dean.jraw.oauth.OAuthHelper;
 import net.dean.jraw.pagination.DefaultPaginator;
 import net.dean.jraw.pagination.Paginator;
+import net.dean.jraw.references.CommentReference;
+import net.dean.jraw.references.CommentsRequest;
+import net.dean.jraw.references.ReplyableReference;
 import net.dean.jraw.references.SubredditReference;
+import net.dean.jraw.tree.CommentNode;
+import net.dean.jraw.tree.ReplyCommentNode;
 
 
 public class RedditBot {
@@ -61,8 +66,15 @@ public class RedditBot {
     public void createSelfPost() {
 
         //Submit Self Post
-        SubredditReference subreddit = new SubredditReference(this.reddit, "redditdev");
+        SubredditReference subreddit = new SubredditReference(this.reddit, "test");
         subreddit.submit(SubmissionKind.SELF, "test", "test", false);
+
+    }
+
+    public void createCommentOnPost() {
+
+        //Submit comment
+        CommentReference comment = new CommentReference(this.reddit, "8wgltt");
 
     }
 
@@ -70,5 +82,6 @@ public class RedditBot {
 
         RedditBot higgins = new RedditBot();
         higgins.printFrontPageMonthlyTop();
+        higgins.createSelfPost();
     }
 }
