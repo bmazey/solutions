@@ -75,7 +75,7 @@ public class RedditBot {
     public void createCommentOnPost() {
 
         //Submit comment
-        CommentReference comment = new CommentReference(this.reddit, "8wgltt");
+        CommentReference comment = new CommentReference(this.reddit, "8wkjpr/test/");
         comment.reply("test comment!");
 
     }
