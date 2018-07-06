@@ -20,7 +20,7 @@ public class RedditBot {
     public static void main(String[] args) {
 
         // You'll want to change this for your specific OAuth2 app
-        Credentials credentials = Credentials.script("<username>", "<password>", "<client ID>", "<client secret>");
+        Credentials credentials = Credentials.script("higgins_bot", "columbiasummer2018", "1BYnEcT2I3slhQ", "Tydgt8mvNTFOJzbK4mPHkMC-648");
 
         // Construct our NetworkAdapter
         UserAgent userAgent = new UserAgent("bot", "net.dean.jraw.example.script", Version.get(), "thatJavaNerd");
