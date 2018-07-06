@@ -10,10 +10,7 @@ import net.dean.jraw.oauth.Credentials;
 import net.dean.jraw.oauth.OAuthHelper;
 import net.dean.jraw.pagination.DefaultPaginator;
 import net.dean.jraw.pagination.Paginator;
-import net.dean.jraw.references.CommentReference;
-import net.dean.jraw.references.CommentsRequest;
-import net.dean.jraw.references.ReplyableReference;
-import net.dean.jraw.references.SubredditReference;
+import net.dean.jraw.references.*;
 import net.dean.jraw.tree.CommentNode;
 import net.dean.jraw.tree.ReplyCommentNode;
 
@@ -78,10 +75,16 @@ public class RedditBot {
 
     }
 
+    public void sendDirectMessage() {
+        SelfUserReference self = new SelfUserReference(reddit);
+        self.inbox().compose("Penance", "test message", "this is a test message");
+    }
+
     public static void main(String[] args) {
 
         RedditBot higgins = new RedditBot();
         higgins.printFrontPageMonthlyTop();
         higgins.createSelfPost();
+        higgins.sendDirectMessage();
     }
 }
