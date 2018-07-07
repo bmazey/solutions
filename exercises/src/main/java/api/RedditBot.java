@@ -83,7 +83,7 @@ public class RedditBot {
         // Otherwise you'll have to use some more advanced methods to get the ID ...
 
         SubredditReference subreddit = new SubredditReference(this.reddit, "test");
-        subreddit.submit(SubmissionKind.SELF, "test", "test", false);
+        subreddit.submit(SubmissionKind.SELF, "here's our class post!", "should've done IG!", false);
     }
 
     public void createCommentOnPost() {
@@ -117,9 +117,36 @@ public class RedditBot {
 
         RedditBot higgins = new RedditBot();
         //higgins.printFrontPageMonthlyTop();
-        //higgins.createSelfPost();
+        higgins.createSelfPost();
         //higgins.createCommentOnPost();
         //higgins.sendDirectMessage();
         //System.out.println(higgins.getHigginsCommentAndLinkKarma());
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     }
 }
