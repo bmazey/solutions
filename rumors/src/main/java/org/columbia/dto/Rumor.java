@@ -2,6 +2,7 @@ package org.columbia.dto;
 
 import java.util.UUID;
 
+
 public class Rumor {
 
     private UUID id;
