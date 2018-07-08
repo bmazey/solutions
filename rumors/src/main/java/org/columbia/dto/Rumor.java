@@ -1,12 +1,23 @@
 package org.columbia.dto;
 
+import org.springframework.stereotype.Component;
+
+import javax.persistence.*;
 import java.util.UUID;
 
-
+@Entity
+@Table(name="rumors")
 public class Rumor {
 
+    @Id
+    @GeneratedValue(strategy=GenerationType.AUTO)
+    @Column(name="id")
     private UUID id;
+
+    @Column(name="name")
     private String name;
+
+    @Column(name="rumor")
     private String rumor;
 
     public UUID getId() {
