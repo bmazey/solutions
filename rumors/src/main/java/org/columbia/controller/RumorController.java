@@ -8,6 +8,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.UUID;
 
 @Controller
@@ -20,14 +22,14 @@ public class RumorController {
     @RequestMapping(value = "/rumor", method = RequestMethod.GET)
     @ResponseBody
     public ResponseEntity<?> getRumor() {
-        return ResponseEntity.ok("success!");
+        return ResponseEntity.ok(rumorService.getAllRumors());
     }
 
     @RequestMapping(value = "/rumor/{id}", method = RequestMethod.GET)
     @ResponseBody
     public ResponseEntity<?> getRumorById(@PathVariable UUID id) {
         RumorEntity rumor = rumorService.getRumorByID(id);
-        return ResponseEntity.ok(rumorService.convertToRumorDto(rumor));
+        return ResponseEntity.ok(rumorService.convertToRumorIdDto(rumor));
     }
 
     @RequestMapping(value = "/rumor", method = RequestMethod.POST)
