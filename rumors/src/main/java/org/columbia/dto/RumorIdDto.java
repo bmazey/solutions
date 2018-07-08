@@ -1,25 +1,11 @@
-package org.columbia.entity;
+package org.columbia.dto;
 
-
-import org.hibernate.annotations.GenericGenerator;
-
-import javax.persistence.*;
 import java.util.UUID;
 
-@Entity
-@Table(name="rumors")
-public class RumorEntity {
+public class RumorIdDto {
 
-    @Id
-    @GeneratedValue(generator = "UUID")
-    @GenericGenerator(name = "UUID", strategy = "org.hibernate.id.UUIDGenerator")
-    @Column(name = "id", updatable = false, nullable = false)
     private UUID id;
-
-    @Column(name="name")
     private String name;
-
-    @Column(name="rumor")
     private String rumor;
 
     public String getName() {
@@ -41,5 +27,4 @@ public class RumorEntity {
     public UUID getId() { return id; }
 
     public void setId(UUID id) { this.id = id; }
-
 }

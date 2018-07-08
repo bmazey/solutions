@@ -7,6 +7,4 @@ import org.springframework.stereotype.Repository;
 import java.util.UUID;
 
 @Repository
-public interface RumorJpaRepository extends CrudRepository<RumorEntity, UUID> {
-
-}
+public interface RumorJpaRepository extends CrudRepository<RumorEntity, UUID> { }

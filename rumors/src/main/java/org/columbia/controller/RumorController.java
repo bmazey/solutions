@@ -27,15 +27,15 @@ public class RumorController {
     @ResponseBody
     public ResponseEntity<?> getRumorById(@PathVariable UUID id) {
         RumorEntity rumor = rumorService.getRumorByID(id);
-        return ResponseEntity.ok(rumorService.convertToDto(rumor));
+        return ResponseEntity.ok(rumorService.convertToRumorDto(rumor));
     }
 
     @RequestMapping(value = "/rumor", method = RequestMethod.POST)
     @ResponseBody
     public ResponseEntity<?> postRumor(@RequestBody RumorDto rumor) {
-        RumorEntity entity = rumorService.convertToEntity(rumor);
+        RumorEntity entity = rumorService.convertToRumorEntity(rumor);
         rumorService.createRumor(entity);
-        return ResponseEntity.ok(entity);
+        return ResponseEntity.ok(rumorService.convertToRumorIdDto(entity));
     }
 
     @RequestMapping(value = "/rumor/{id}", method = RequestMethod.DELETE)

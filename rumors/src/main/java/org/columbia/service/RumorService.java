@@ -1,6 +1,7 @@
 package org.columbia.service;
 
 import org.columbia.dto.RumorDto;
+import org.columbia.dto.RumorIdDto;
 import org.columbia.entity.RumorEntity;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,13 +32,21 @@ public class RumorService {
      * @return
      */
 
-    public RumorDto convertToDto(RumorEntity entity) {
+    public RumorDto convertToRumorDto(RumorEntity entity) {
         RumorDto rumor = modelMapper.map(entity, RumorDto.class);
         return rumor;
     }
 
-    public RumorEntity convertToEntity(RumorDto rumor) {
+    public RumorIdDto convertToRumorIdDto(RumorEntity entity) {
+        RumorIdDto rumor = modelMapper.map(entity, RumorIdDto.class);
+
+        //Is this a hack? Why is it coming back null?
+        return rumor;
+    }
+
+    public RumorEntity convertToRumorEntity(RumorDto rumor) {
         RumorEntity entity = modelMapper.map(rumor, RumorEntity.class);
         return entity;
     }
+
 }
