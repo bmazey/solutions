@@ -2,6 +2,7 @@ package org.columbia.service;
 
 import org.columbia.dto.RumorDto;
 import org.columbia.dto.RumorIdDto;
+import org.columbia.dto.RumorListDto;
 import org.columbia.entity.RumorEntity;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,18 +33,36 @@ public class RumorService {
         return repository.findById(id).get();
     }
 
-    public List<RumorIdDto> getAllRumors() {
+    public RumorListDto getAllRumors() {
         List<RumorEntity> rumors = new ArrayList<>();
         repository.findAll().forEach(rumors :: add);
 
         // Now we have an ArrayList of <RumorEntity> ... but we want to convert it to <RumorIdDto> !
-        return rumors.stream()
+        List<RumorIdDto> rumorIds = rumors
+                .stream()
                 .map(rumor -> convertToRumorIdDto(rumor))
                 .collect(Collectors.toList());
+
+        // This is probably not the *best* way to do this, but all we're looking for is a small dto change ...
+        RumorListDto result = new RumorListDto();
+        result.setRumors(rumorIds);
+        return result;
     }
 
     public void createRumor(RumorEntity rumor) {
         repository.save(rumor);
+    }
+
+    public void deleteRumorbyId(UUID id) {
+        repository.deleteById(id);
+    }
+
+    public void deleteAllRumors() {
+        repository.deleteAll();
+    }
+
+    public boolean rumorExistsBbyId(UUID id) {
+        return repository.findById(id).isPresent();
     }
 
     /**
@@ -51,11 +70,6 @@ public class RumorService {
      * @param entity
      * @return
      */
-
-    public RumorDto convertToRumorDto(RumorEntity entity) {
-        RumorDto rumor = modelMapper.map(entity, RumorDto.class);
-        return rumor;
-    }
 
     public RumorIdDto convertToRumorIdDto(RumorEntity entity) {
         RumorIdDto rumor = modelMapper.map(entity, RumorIdDto.class);

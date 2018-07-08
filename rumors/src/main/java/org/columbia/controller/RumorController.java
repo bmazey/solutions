@@ -8,8 +8,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.UUID;
 
 @Controller
@@ -43,6 +41,14 @@ public class RumorController {
     @RequestMapping(value = "/rumor/{id}", method = RequestMethod.DELETE)
     @ResponseBody
     public ResponseEntity<?> deleteRumor(@PathVariable UUID id) {
-        return ResponseEntity.ok("success!");
+        rumorService.deleteRumorbyId(id);
+        return ResponseEntity.noContent().build();
+    }
+
+    @RequestMapping(value = "/rumor", method = RequestMethod.DELETE)
+    @ResponseBody
+    public ResponseEntity<?> deleteAllRumors() {
+        rumorService.deleteAllRumors();
+        return ResponseEntity.noContent().build();
     }
 }
