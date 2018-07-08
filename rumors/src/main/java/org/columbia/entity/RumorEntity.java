@@ -1,17 +1,19 @@
-package org.columbia.dto;
+package org.columbia.entity;
 
-import org.springframework.stereotype.Component;
+
+import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
 import java.util.UUID;
 
 @Entity
 @Table(name="rumors")
-public class Rumor {
+public class RumorEntity {
 
     @Id
-    @GeneratedValue(strategy=GenerationType.AUTO)
-    @Column(name="id")
+    @GeneratedValue(generator = "UUID")
+    @GenericGenerator(name = "UUID", strategy = "org.hibernate.id.UUIDGenerator")
+    @Column(name = "id", updatable = false, nullable = false)
     private UUID id;
 
     @Column(name="name")
@@ -19,14 +21,6 @@ public class Rumor {
 
     @Column(name="rumor")
     private String rumor;
-
-    public UUID getId() {
-        return id;
-    }
-
-    public void setId(UUID id) {
-        this.id = id;
-    }
 
     public String getName() {
         return name;
@@ -42,6 +36,14 @@ public class Rumor {
 
     public void setRumor(String rumor) {
         this.rumor = rumor;
+    }
+
+    public UUID getId() {
+        return id;
+    }
+
+    public void setId(UUID id) {
+        this.id = id;
     }
 
 }

@@ -1,6 +1,7 @@
 package org.columbia.controller;
 
-import org.columbia.dto.Rumor;
+import org.columbia.dto.RumorDto;
+import org.columbia.entity.RumorEntity;
 import org.columbia.service.RumorService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -25,14 +26,16 @@ public class RumorController {
     @RequestMapping(value = "/rumor/{id}", method = RequestMethod.GET)
     @ResponseBody
     public ResponseEntity<?> getRumorById(@PathVariable UUID id) {
-        Rumor rumor = rumorService.getRumorByID(id);
-        return ResponseEntity.ok(rumor);
+        RumorEntity rumor = rumorService.getRumorByID(id);
+        return ResponseEntity.ok(rumorService.convertToDto(rumor));
     }
 
     @RequestMapping(value = "/rumor", method = RequestMethod.POST)
     @ResponseBody
-    public ResponseEntity<?> postRumor(@RequestBody Rumor rumor) {
-        return ResponseEntity.ok("success!");
+    public ResponseEntity<?> postRumor(@RequestBody RumorDto rumor) {
+        RumorEntity entity = rumorService.convertToEntity(rumor);
+        rumorService.createRumor(entity);
+        return ResponseEntity.ok(entity);
     }
 
     @RequestMapping(value = "/rumor/{id}", method = RequestMethod.DELETE)
