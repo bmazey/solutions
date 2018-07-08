@@ -1,4 +1,3 @@
-
 import org.columbia.RumorMillApplication;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
@@ -98,10 +97,43 @@ public class RumorMillTest {
     }
 
     @Test
+    public void shouldCreateRumorsAndQueryListOfRumors() throws Exception {
+        MvcResult firstPostResult = this.mockMvc.perform(post("/api/rumor")
+                .contentType(MediaType.APPLICATION_JSON)
+                .content("{\"name\":\"brandon\", \"rumor\":\"is a former vine celebrity\"}"))
+                .andDo(print())
+                .andExpect(status().isCreated())
+                .andReturn();
+
+        Object firstRumorJsonObject = parser.parse(firstPostResult.getResponse().getContentAsString());
+        JSONObject firstRumorJson = (JSONObject)firstRumorJsonObject;
+
+        MvcResult secondPostResult = this.mockMvc.perform(post("/api/rumor")
+                .contentType(MediaType.APPLICATION_JSON)
+                .content("{\"name\":\"alyssa\", \"rumor\":\"cheated on her spanish homework\"}"))
+                .andDo(print())
+                .andExpect(status().isCreated())
+                .andReturn();
+
+        Object secondRumorJsonObject = parser.parse(secondPostResult.getResponse().getContentAsString());
+        JSONObject secondRumorJson = (JSONObject)secondRumorJsonObject;
+
+        Object getRumorJsonObject = parser.parse(this.mockMvc.perform(get("/api/rumor"))
+                .andDo(print())
+                .andExpect(status().isOk())
+                .andReturn().getResponse().getContentAsString());
+
+        JSONObject getRumorJson = (JSONObject)getRumorJsonObject;
+
+        assert getRumorJson.toJSONString().contains(firstRumorJson.get("id").toString());
+        assert getRumorJson.toJSONString().contains(secondRumorJson.get("id").toString());
+    }
+
+    @Test
     public void shouldCreateDeleteAndQueryRumorById() throws Exception {
         MvcResult postResult = this.mockMvc.perform(post("/api/rumor")
                 .contentType(MediaType.APPLICATION_JSON)
-                .content("{\"name\":\"brandon\", \"rumor\":\"has a jonas brothers poster\"}"))
+                .content("{\"name\":\"alyssa\", \"rumor\":\"doesn't even go to columbia\"}"))
                 .andDo(print())
                 .andExpect(status().isCreated())
                 .andReturn();
@@ -119,7 +151,6 @@ public class RumorMillTest {
         this.mockMvc.perform(get("/api/rumor/" + id))
                 .andDo(print())
                 .andExpect(status().isNotFound());
-
     }
 
     @Test
@@ -148,7 +179,6 @@ public class RumorMillTest {
         JSONObject json = (JSONObject)jsonObject;
 
         assertThat(json.get("rumors").toString(), equalTo("[]"));
-
     }
 
 }
