@@ -16,6 +16,13 @@
     </repositories>
 
     <dependencies>
+        <!-- https://mvnrepository.com/artifact/org.springframework/spring-web -->
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-web</artifactId>
+            <version>3.0.2.RELEASE</version>
+        </dependency>
+
         <!-- Testing with Spring & h2 -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
